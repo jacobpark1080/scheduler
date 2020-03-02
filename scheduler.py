@@ -11,8 +11,9 @@ if __name__ == '__main__':
         for line in lines[1:]:
             tasklist.append(line.split()[0])
         task = input('What task {}: '.format(tasklist)).strip()
-        df = np.diff([int(i) for i in input('What times: ').strip().split()])
-        tot = df[0]
+        times = [i.replace(':', '.') for i in input('What times: ').strip().split()]
+        tot = round(abs((float(times[0].split('.')[0])+float(times[0][-3:])*100/60) - \
+                    (float(times[1].split('.')[0])+float(times[1][-3:])*100/60)),2)
         if task in tasklist:
             for line in lines:
                 if line.split()[0] == task:
@@ -20,6 +21,7 @@ if __name__ == '__main__':
                     line = line.replace(line,'{} {}\n'.format(task, tot))
                     file.write(line)
                 else: file.write(line)
+            print("Added {} to '{}' time".format(tot,task))
             print("You've completed {} hours!".format(tot))
         else:
             for line in lines:
