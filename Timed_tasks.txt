@@ -1,6 +1,8 @@
 Task Hours done
-Math 5.0
-Reading 5.0
-Coding 4.0
-Sleep 8.0
-Eating 1
+Recovery 0.0
+Work 0.0
+Exercise 0.0
+Eating 0.0
+Social 0.0
+Sleep 0.0
+Misc 0.0
